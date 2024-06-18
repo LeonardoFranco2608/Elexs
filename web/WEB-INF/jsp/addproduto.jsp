@@ -20,6 +20,7 @@
             <button id="show-login"><a href="./ProdutosController">Produtos</a></button>
             <button id="show-login"><a href="./login">Login</a></button>
             <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            <link rel="shortcut icon" href="assets/LogoPg.png" type="image/x-icon">
         </nav>
 
     </header>
@@ -27,7 +28,7 @@
         <div class="main-container">
             <form action="./cadastrar-produto" method="post" enctype="multipart/form-data">
                 <div class="title">
-                    <h1>Cadastrar Produto</h1>
+                    <h1>Cadastrar Card</h1>
                 </div>
                 <div class="barra">
 

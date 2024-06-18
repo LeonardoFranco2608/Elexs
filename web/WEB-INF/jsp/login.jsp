@@ -8,6 +8,8 @@
         <script src="https://kit.fontawesome.com/4d815a01ff.js" crossorigin="anonymous"></script>
         <title>Login - Elexs</title>
         <link rel="stylesheet" href="styles/login.css">
+        <link rel="stylesheet" href="styles/index.css">
+        <link rel="shortcut icon" href="assets/LogoPg.png" type="image/x-icon">
     </head>
     <body>
 
@@ -18,12 +20,31 @@
             <a href="./Home">
                 <img class="logo" src="assets/logoelexs-recortado.png" alt="Logo">
             </a>
+            
     
     
             <nav class="navbar">
                 <button id="show-login"><a href="./ProdutosController">Produtos</a></button>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                
+        
+                <i class="fa-solid fa-cart-shopping" id="openCarrinho"></i>
+                
+                
             </nav>
+            
+            <div id="carrinho">
+                <div id="background-carrinho"></div>
+                <div id="carrinho-container">
+                  <div class="carrinho-header">
+                      <i id="closeCarrinho" class="fa-solid fa-xmark"></i>
+                  </div>
+                  <div id="carrinho-main"></div>
+                  <div class="carrinho-footer">
+                    <button class="btn btn-finalizar">FINALIZAR COMPRA</button>
+                  </div>
+                </div>
+              </div>
+            
     
         </header>
 
@@ -60,5 +81,7 @@
             </div>
 
         </div>
+        
     </body>
+    <script src="js/carrinho.js"></script>
 </html>

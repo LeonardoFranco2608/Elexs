@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/detalhes.css">
     <script src="https://kit.fontawesome.com/4d815a01ff.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="assets/LogoPg.png" type="image/x-icon">
     <title>Detalhes - Elexs</title>
 </head>
 <body>

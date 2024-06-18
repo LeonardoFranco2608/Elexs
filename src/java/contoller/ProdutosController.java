@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +21,9 @@ import model.dao.ProdutoDAO;
  *
  * @author Senai
  */
+@MultipartConfig
 public class ProdutosController extends HttpServlet {
-
+      ProdutoDAO produtoDAO = new ProdutoDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,12 +35,28 @@ public class ProdutosController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ProdutoDAO produtoDAO = new ProdutoDAO();
+        String url = request.getServletPath();
+        if (url.equals("/ProdutosController")){
         List<ProdutoDTO> produtos = produtoDAO.listarProdutos();
         request.setAttribute("pr", produtos);
         String nextPage = "/WEB-INF/jsp/produtos.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-        dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        
+    } else if (url.equals("/busca")) {
+            String busca = request.getParameter("busca") != null? request.getParameter("busca") : "";
+            if(busca.trim().equals("")) {
+                List<ProdutoDTO> produtos = produtoDAO.listarProdutos();
+                request.setAttribute("pr", produtos);
+            } else {
+                busca = "%"+busca+"%";
+                List<ProdutoDTO> produtos = produtoDAO.sistemaDeBusca(busca);
+                request.setAttribute("pr", produtos);
+            }
+            String nextPage = "/WEB-INF/jsp/produtos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

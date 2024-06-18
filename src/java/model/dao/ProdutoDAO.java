@@ -173,5 +173,95 @@ public ProdutoDTO Produto(int unico) {
         }
         return produto;
     }
+public ProdutoDTO buscarProdutoCarrinho(int idProduto) {
+        ProdutoDTO p = new ProdutoDTO();
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE  idProduto = ?");
+            stmt.setInt(1, idProduto);
+            
+            rs = stmt.executeQuery();
+            
+            if(rs.next()) {
+                p.setIdProduto(rs.getInt("idProduto"));
+                p.setNome(rs.getString("nome"));
+                p.setCategoria(rs.getInt("categoria"));
+                p.setDescricao(rs.getString("descricao"));
+                p.setPreco(rs.getFloat("preco"));
+                p.setImage(rs.getString("image"));
+            } else {
+                p.setIdProduto(0);
+            }
+        } catch(SQLException e ) {
+            e.printStackTrace();
+        }
+        
+        return p;
+    }
+public List<ProdutoDTO> sistemaDeBusca(String Busca) {
+       List<ProdutoDTO> result = new ArrayList();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
 
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE nome LIKE ?");
+            stmt.setString(1, Busca);
+            
+            rs = stmt.executeQuery(); 
+            while (rs.next()) {
+                ProdutoDTO p = new ProdutoDTO();
+                p.setIdProduto(rs.getInt("idProduto"));
+                p.setNome(rs.getString("nome"));
+                p.setCategoria(rs.getInt("categoria"));
+                p.setDescricao(rs.getString("descricao"));
+                p.setPreco(rs.getFloat("preco"));
+                p.setImage(rs.getString("image"));
+                result.add(p);
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+public List<ProdutoDTO> sistemaDeBuscaCategoria(int categoria) {
+       List<ProdutoDTO> resultC = new ArrayList();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM produto WHERE categoria = ?");
+            stmt.setInt(1, categoria);
+            
+            rs = stmt.executeQuery();
+     
+            while (rs.next()) {
+               ProdutoDTO p = new ProdutoDTO();
+               p.setIdProduto(rs.getInt("idProduto"));
+               p.setNome(rs.getString("nome"));
+               p.setCategoria(rs.getInt("categoria"));
+               p.setDescricao(rs.getString("descricao"));
+               p.setPreco(rs.getFloat("preco"));
+               p.setImage(rs.getString("image"));
+               resultC.add(p);
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return resultC;
+    }
 }

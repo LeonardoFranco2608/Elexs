@@ -31,20 +31,24 @@ body {
 
 
 
+
 #show-login {
-    background-color: transparent;
-    border: none;
-    }
-    
-    #show-sobre {
-        background-color: transparent;
-        border: none;
-        }
-    
-    #show-cada {
-        background-color: transparent;
-        border: none;
-        }
+	background-color: transparent;
+	border: none;
+	outline: none;
+	}
+	
+	#show-sobre {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		}
+	
+	#show-cada {
+		background-color: transparent;
+		border: none;
+		outline: none;
+		}
     
     .center {
         position: absolute;

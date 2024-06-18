@@ -10,7 +10,9 @@
         <script src="https://kit.fontawesome.com/4d815a01ff.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>Elexs</title>
+              <link rel="shortcut icon" href="assets/LogoPg.png" type="image/x-icon">
+        <title>Home - Elexs</title>
+     
 
     </head>
 
@@ -28,8 +30,24 @@
             <button id="show-login"><a href="./ProdutosController">Produtos</a></button>
             <button id="show-sobre"><a href="#">Sobre</a></button>
             <button id="show-login"><a href="./login">Login</a></button>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i class="fa-solid fa-cart-shopping" id="openCarrinho"></i>
+            
+            
         </nav>
+        
+        <div id="carrinho">
+            <div id="background-carrinho"></div>
+            <div id="carrinho-container">
+              <div class="carrinho-header">
+                  <i id="closeCarrinho" class="fa-solid fa-xmark"></i>
+              </div>
+              <div id="carrinho-main"></div>
+              <div class="carrinho-footer">
+                <button class="btn btn-finalizar">FINALIZAR COMPRA</button>
+              </div>
+            </div>
+          </div>
+        
 
     </header>
     <main>
@@ -63,7 +81,7 @@
                             <img src="assets/spot.jpg" alt="" class="card-img">
                         </div>
                         <div class="card-image">
-                            <img src="assets/ifood.jpg" alt="" class="card-img">
+                            <img src="assets/uber.jpg" alt="" class="card-img">
                         </div>
                         <div class="card-image">
                             <img src="assets/googleplay.jpg" alt="" class="card-img">
@@ -101,7 +119,7 @@
 
                 <h2>Sobre Nós</h2>
                 <h6>Somos uma loja focada em cards, com preços acessíveis e com facilidade na hora da compra, uma compra simples e mais rápida nas nuvens!</h6>
-                <h6>Um agradecimento aos colaboradores desse projeto: Less, MegaMart, DV, Massarim, Evelin Verissimo, EliteTech</h6>
+                <h6>Um agradecimento aos colaboradores desse projeto: Less, MegaMart, DV, Evelin Verissimo, EliteTech</h6>
                 
 
             </div>
@@ -114,8 +132,9 @@
 
     </footer>
     <script src="js/sobre.js" type="text/javascript"></script>
-    <script src="js/login.js" type="text/javascript"></script>
+   <script src="js/carrinho.js"></script>
 </body>
+<script src="js/carrinho.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 crossorigin="anonymous"></script>
