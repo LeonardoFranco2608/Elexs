@@ -14,9 +14,9 @@ import java.sql.SQLException;
  * @author Senai
  */
 public class Conexao {
- private static final String url = "jdbc:mysql://localhost:3306/elexs";
-    private static final String user = "root";
-    private static final String password = "";
+ private static final String url = "jdbc:mysql://db4free.net:3306/senai_elexs_leof?useSSL=false";
+    private static final String user = "senai_leof";
+    private static final String password = "l30nard0.";
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     
     public static java.sql.Connection conectar() {

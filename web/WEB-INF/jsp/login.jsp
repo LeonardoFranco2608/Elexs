@@ -70,7 +70,7 @@
                     <input type="text" placeholder="nome" name="nome">
                     <input type="email" placeholder="email" name="email">
                     <input type="password" placeholder="crie uma senha" name="senha">
-                    <input type="text" placeholder="cpf" name="cpf">
+                    <input id="cpf" type="text" placeholder="cpf" name="cpf">
                     <button type="submit" class="button" >Cadastrar</button>
                 </form>
                 <div class="signup">
@@ -83,5 +83,12 @@
         </div>
         
     </body>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
+                integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            $('#cpf').mask('000.000.000-00', {reverse: false});
+        </script>
     <script src="js/carrinho.js"></script>
 </html>
